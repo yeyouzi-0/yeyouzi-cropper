@@ -1,0 +1,51 @@
+/* components/yeyouzi-cropper/yeyouzi-cropper.wxss */
+.Container{
+  opacity: 0;
+  z-index: -9999;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.Container-show{
+  position: fixed;
+  left: 0;
+  top: 0;
+  background:#000;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  opacity: 1;
+  z-index: 999;
+}
+
+.imgContainer{
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.settingContainer{
+  background: #000;
+  padding: 10px 0;
+  z-index: 10000;
+}
+
+.rotateContainer{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.btnContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+}

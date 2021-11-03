@@ -1,0 +1,30 @@
+<!--components/yeyouzi-cropper/yeyouzi-cropper.wxml-->
+<!-- <view class="Container{{img.path != '' ? '-show' : ''}}"> -->
+<view class="Container-show" wx:if="{{img.path != ''}}">
+  <view class="imgContainer">
+    <canvas type="2d" id="cutCanvas" style="width: 100%;height: 100%;z-index:9999;" bindtouchstart="_touchStart" bindtouchend="_touchEnd" bindtouchmove="_touchMove" ></canvas>
+
+    <view style="position: absolute;top:{{imageTop}}px;left: {{imageLeft}}px;transform: rotateY({{imgMirror}}deg);transform-origin:{{originWidthShow * 100}}% {{originHeightShow * 100}}%;">
+      <image src="{{img.path}}" style="width:{{imageWidth}}px;height:{{imageHeight}}px;transform: rotateZ({{imgMirror == 180 ? -imgRotate : imgRotate}}deg);transform-origin:{{originWidthShow * 100}}% {{originHeightShow * 100}}%;"></image>
+    </view>
+
+  </view>
+  <view class="settingContainer">
+    <view class="rotate" style="color: #fff;width: 100%;text-align: center;">{{imgRotate}}°</view>
+    <view class="rotateContainer">
+      <text style="color: #fff;font-size: 20px;" bindtap="_imageMirror">⇌</text>
+      <slider style="width: 100%;" min="-180" max="180" value="{{imgRotate}}" block-size="18px" selected-color="#fff" bindchanging="_rotateChange"></slider>
+      <text style="color: #fff;font-size: 22px;" bindtap="_rotateNinety">⊙</text>
+    </view>
+
+    <view class="btnContainer">
+      <text style="color: #fff;font-size: 24px;" bindtap="_cancelCut">×</text>
+      <text style="color: #fff;font-size: 16px;text-align:center;align-self: center;" bindtap="_imgRestore">还原</text>
+      <text style="color: #fff;font-size: 24px;" bindtap="_confirmCut">✓</text>
+    </view>
+    
+  </view>
+
+  <canvas type="2d" id="imgCanvas" style="width: 0;height: 0;"></canvas>
+  
+</view>
